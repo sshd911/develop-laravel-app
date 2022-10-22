@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\DashboardContrller;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardContrller::class, 'index'])->name('dashboard');
 
 Route::group(
     [
@@ -34,6 +33,7 @@ Route::group(
     function () {
         // Route::get('/', [UserController::class, 'inde x'])->name('dashboard');
         Route::get('index', [UserController::class, 'index'])->name('index');
+        // Route::get('dashboard', [DashboardContrller::class, 'index'])->name('dashboard');
         // Route::group(['prefix' => 'mypage', 'as' => 'mypage.',], function () {
         //     Route::get('/edit', [UserController::class, 'edit'])->name('edit');
         // });
