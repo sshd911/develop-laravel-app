@@ -3,6 +3,7 @@
 use App\Http\Controllers\User\DashboardContrller;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\userRequestController;
 use App\Http\Controllers\User\UserTaskController;
 use Illuminate\Support\Facades\Route;
 
