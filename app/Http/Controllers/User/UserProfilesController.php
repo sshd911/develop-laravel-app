@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\UserProfiles;
+use App\Models\UserProfile;
 use App\Services\UserProfilesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +24,7 @@ class UserProfilesController extends Controller
 
     public function index()
     {
-        $attributes = UserProfiles::where('user_id', '=', Auth::id())->get();
+        $attributes = UserProfile::where('user_id', '=', Auth::id())->get();
         return view('user.userProfiles.index', compact('attributes'));
     }
 }

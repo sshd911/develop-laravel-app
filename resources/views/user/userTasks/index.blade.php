@@ -32,7 +32,7 @@
                     </header>
                     <div class="tab-content max-h-0"
                           @class="isChecked ? 'max-h-screen' : ''">
-                      <form action="">
+                    <form class="m-4">
                         <x-input name="title"
                                  id="title"
                                  type="text"

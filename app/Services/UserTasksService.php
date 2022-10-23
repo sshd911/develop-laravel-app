@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use App\Models\User;
-use App\Models\UserProfiles;
-use App\Models\UserTasks;
+use App\Models\UserProfile;
+use App\Models\UserTask;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\DB;
 
 class UserTasksService
 {
-  public $userTasks;
+  public $userTask;
 
-  public function __construct(UserTasks $userTasks)
+  public function __construct(UserTask $userTask)
   {
-    $this->userTasks = $userTasks;  
+    $this->userTask = $userTask;
   }
 
   public function getUserTasks($userId)
   {
-    $userProfiles = UserProfiles::where('user_id', $userId)->first();
+    $userProfiles = UserProfile::where('user_id', $userId)->first();
     $query = $this->userTasks->newQuery();
     return $query->where('user_id', '=', $userProfiles->user_id)->get();
   }

@@ -11,8 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class UserService
 {
-    public function update(int $userId, array $data)
+    public $user;
+
+    public function __construct(User $user)
     {
-        return User::where('id', $userId)->withTrashed()->update($data);
+        $this->user = $user;
     }
 }

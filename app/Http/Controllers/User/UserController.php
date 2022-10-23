@@ -25,4 +25,5 @@ class UserController extends Controller
     {
         return $this->userService->update(Auth::id(), $request);
     }
+    
 }

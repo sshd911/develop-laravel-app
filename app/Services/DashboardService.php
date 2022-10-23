@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Models\User;
-use App\Models\UserProfiles;
-use App\Models\TaskTypes;
-use App\Models\UserTasks;
+use App\Models\UserProfile;
+use App\Models\TaskType;
+use App\Models\UserTask;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,12 +19,12 @@ class DashboardService
   public $taskTypes;
   public $userTasks;
 
-  public function __construct(User $user, UserProfiles $userProfiles, TaskTypes $taskTypes, UserTasks $userTasks)
+  public function __construct(User $user, UserProfile $userProfile, TaskType $taskType, UserTask $userTask)
   {
     $this->user = $user;
-    $this->userProfiles = $userProfiles;
-    $this->taskTypes = $taskTypes;
-    $this->userTasks = $userTasks;
+    $this->userProfiles = $userProfile;
+    $this->taskTypes = $taskType;
+    $this->userTasks = $userTask;
   }
 
   public function getAll()

@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
-use App\Models\UserProfiles;
+use App\Models\UserProfile;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,7 +14,7 @@ class UserProfilesService
 {
     protected $model;
 
-    public function __construct(UserProfiles $model)
+    public function __construct(UserProfile $model)
     {
       $this->model = $model;
     }
@@ -28,6 +28,6 @@ class UserProfilesService
   
     public function update(int $userId, array $data)
     {
-        return UserProfiles::where('id', $userId)->withTrashed()->update($data);
+        return UserProfile::where('id', $userId)->withTrashed()->update($data);
     }
 }
