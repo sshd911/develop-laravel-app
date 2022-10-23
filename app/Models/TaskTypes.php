@@ -21,6 +21,7 @@ class TaskTypes extends Model
         // 9 => '',
         // 10 => '',
     ];
+
     protected $fillable = [
         'type',
     ];

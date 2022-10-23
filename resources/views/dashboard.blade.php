@@ -20,7 +20,7 @@
                 }
             </style>
 
-            <main @data="{ isChecked: false }" class="w-3/5 p-2 mt-2 mx-auto" for="bt">
+            <main @data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
                 <section class="shadow row">
                     <div class="tabs bg-white">
                         <div class="border-b overflow-hidden">

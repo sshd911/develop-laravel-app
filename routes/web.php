@@ -3,6 +3,7 @@
 use App\Http\Controllers\User\DashboardContrller;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfilesController;
+use App\Http\Controllers\User\UserTasksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,10 @@ Route::group(
     function () {
         // user index
         Route::get('index', [UserController::class, 'index'])->name('index');
+        // userTasks
+        Route::group(['prefix' => 'userTasks', 'as' => 'userTasks.'], function () {
+            Route::get('index', [UserTasksController::class, 'index'])->name('index');
+        });
         // userProfiles
         Route::group(['prefix' => 'userProfiles', 'as' => 'userProfiles.'], function () {
             Route::get('index', [UserProfilesController::class, 'index'])->name('index');
