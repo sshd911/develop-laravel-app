@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class UserTasksService
+class UserTaskService
 {
   public $userTask;
 

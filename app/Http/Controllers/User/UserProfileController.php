@@ -4,22 +4,22 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\UserProfile;
-use App\Services\UserProfilesService;
+use App\Services\UserProfileService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
-    public $userProfilesService;
+    public $userProfileService;
 
-    public function __construct(UserProfilesService $userProfilesService)
+    public function __construct(UserProfileService $userProfileService)
     {
-        $this->userProfilesService = $userProfilesService;
+        $this->userProfileService = $userProfileService;
     }
 
     public function register($attributes)
     {
-        $this->UserProfilesService->register($attributes);
+        $this->userProfileService->register($attributes);
     }
 
     public function index()

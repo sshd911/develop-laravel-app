@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class UserProfilesService
+class UserProfileService
 {
     protected $userProfile;
 

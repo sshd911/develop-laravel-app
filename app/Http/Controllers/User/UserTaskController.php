@@ -4,22 +4,22 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\UserTasks;
-use App\Services\UserTasksService;
+use App\Services\UserTaskService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserTaskController extends Controller
 {
-    public $userTasksSercice;
+    public $userTaskSercice;
 
-    public function __construct(UserTasksService $userTasksSercice)
+    public function __construct(UserTaskService $userTaskSercice)
     {
-        $this->userTasksSercice = $userTasksSercice;
+        $this->userTaskSercice = $userTaskSercice;
     }
 
     public function index()
     {
-        $attributes = $this->userTasksSercice->getUserTasks(Auth::id());
+        $attributes = $this->userTaskSercice->getUserTasks(Auth::id());
         return view('user.userTask.index', compact('attributes'));
     }
 }
