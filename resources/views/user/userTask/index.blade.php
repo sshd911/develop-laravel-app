@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <livewire.user.use-trask.index></livewire.user.use-trask.index>
+    @livewire('user.user-task.create')
     <x-user.drag-bar-style></x-user.drag-bar-style>
     <main @data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
         <section class="shadow row">

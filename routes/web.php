@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\User\DashboardContrller;
 use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\User\UserProfilesController;
-use App\Http\Controllers\User\UserTasksController;
+use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\UserTaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,12 +36,16 @@ Route::group(
         // user index
         Route::get('index', [UserController::class, 'index'])->name('index');
         // userTasks
-        Route::group(['prefix' => 'userTasks', 'as' => 'userTasks.'], function () {
-            Route::get('index', [UserTasksController::class, 'index'])->name('index');
+        Route::group(['prefix' => 'userTask', 'as' => 'userTask.'], function () {
+            Route::get('index', [UserTaskController::class, 'index'])->name('index');
         });
         // userProfiles
-        Route::group(['prefix' => 'userProfiles', 'as' => 'userProfiles.'], function () {
-            Route::get('index', [UserProfilesController::class, 'index'])->name('index');
+        Route::group(['prefix' => 'userProfile', 'as' => 'userProfile.'], function () {
+            Route::get('index', [UserProfileController::class, 'index'])->name('index');
+        });
+        // userRequest
+        Route::group(['prefix' => 'userRequest', 'as' => 'userRequest.'], function () {
+            Route::get('index', [userRequestController::class, 'index'])->name('index');
         });
     }
 );

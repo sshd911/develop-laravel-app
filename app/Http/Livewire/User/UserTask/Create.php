@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\User\UserTask;
 
 use App\Models\UserTask;
 use Livewire\Component;
 
-class UserTasks extends Component
+class Create extends Component
 {
     public UserTask $userTask;
     public string $title;
@@ -42,6 +42,6 @@ class UserTasks extends Component
 
     public function render()
     {
-        return view('livewire.user.userTask.index');
+        return view('livewire.user.user-task.create');
     }
 }

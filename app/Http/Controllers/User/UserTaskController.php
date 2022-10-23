@@ -8,7 +8,7 @@ use App\Services\UserTasksService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserTasksController extends Controller
+class UserTaskController extends Controller
 {
     public $userTasksSercice;
 
@@ -20,6 +20,6 @@ class UserTasksController extends Controller
     public function index()
     {
         $attributes = $this->userTasksSercice->getUserTasks(Auth::id());
-        return view('user.userTasks.index', compact('attributes'));
+        return view('user.userTask.index', compact('attributes'));
     }
 }

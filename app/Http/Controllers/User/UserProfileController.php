@@ -8,7 +8,7 @@ use App\Services\UserProfilesService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserProfilesController extends Controller
+class UserProfileController extends Controller
 {
     public $userProfilesService;
 
@@ -25,6 +25,6 @@ class UserProfilesController extends Controller
     public function index()
     {
         $attributes = UserProfile::where('user_id', '=', Auth::id())->get();
-        return view('user.userProfiles.index', compact('attributes'));
+        return view('user.userProfile.index', compact('attributes'));
     }
 }

@@ -27,11 +27,11 @@
                 </header>
             @endif
 
-            @yield('content')
             <!-- Page Content -->
-            {{-- <main>
-                {{ $slot }}
-            </main> --}}
+            @yield('content')
+            {{-- <div> --}}
+                {{-- {{ $slot }} --}}
+            {{-- </div> --}}
         </div>
         @livewireScripts
     </body>
