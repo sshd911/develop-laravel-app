@@ -2,7 +2,6 @@
     @if ($attributes)
         @foreach ($attributes as $attribute)
             <style>
-
                 input:checked+.tab-label .test {
                     background-color: #000;
                 }
@@ -23,7 +22,7 @@
 
             <main @data="{ isChecked: false }" class="w-3/5 p-2 mt-2 mx-auto" for="bt">
                 <section class="shadow row">
-                    <div class="tabs">
+                    <div class="tabs bg-white">
                         <div class="border-b overflow-hidden">
                             <div class="border-l-2 border-transparent relative">
                                 <input @click="isChecked = !isChecked" class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="bt">
@@ -69,5 +68,4 @@
             </main>
         @endforeach
     @endif
-
 </x-app-layout>

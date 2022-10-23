@@ -24,7 +24,7 @@ class UserProfilesController extends Controller
 
     public function index()
     {
-        $attributes = UserProfiles::where('id', '=', Auth::id())->get();
+        $attributes = UserProfiles::where('user_id', '=', Auth::id())->get();
         return view('user.userProfiles.index', compact('attributes'));
     }
 }
