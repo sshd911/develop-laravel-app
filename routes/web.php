@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\DashboardContrller;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\UserProfilesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ Route::get('/dashboard', [DashboardContrller::class, 'index'])->name('dashboard'
 
 Route::group(
     [
-        'prefix' => '',
+        'prefix' => 'user',
         'as' => 'user.',
         'middleware' => [
             'auth:web',
@@ -31,12 +32,12 @@ Route::group(
         ],
     ],
     function () {
-        // Route::get('/', [UserController::class, 'inde x'])->name('dashboard');
+        // user index
         Route::get('index', [UserController::class, 'index'])->name('index');
-        // Route::get('dashboard', [DashboardContrller::class, 'index'])->name('dashboard');
-        // Route::group(['prefix' => 'mypage', 'as' => 'mypage.',], function () {
-        //     Route::get('/edit', [UserController::class, 'edit'])->name('edit');
-        // });
+        // userProfiles
+        Route::group(['prefix' => 'userProfiles', 'as' => 'userProfiles.'], function () {
+            Route::get('index', [UserProfilesController::class, 'index'])->name('index');
+        });
     }
 );
 require __DIR__.'/auth.php';

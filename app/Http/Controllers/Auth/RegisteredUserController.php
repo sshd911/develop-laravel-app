@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\User\UserProfilesController;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -13,6 +14,12 @@ use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
 {
+    public $userProfiles;
+
+    public function __construct(UserProfiles $userProfiles)
+    {
+        $this->userProfiles = $userProfiles;
+    }
     /**
      * Display the registration view.
      *
@@ -45,6 +52,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $this->userProfiles->register($user);
+        
         event(new Registered($user));
 
         Auth::login($user);
