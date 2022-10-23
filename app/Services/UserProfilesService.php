@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class UserProfilesService
 {
-    protected $model;
+    protected $userProfile;
 
-    public function __construct(UserProfile $model)
+    public function __construct(UserProfile $userProfile)
     {
-      $this->model = $model;
+      $this->userProfile = $userProfile;
     }
 
     public function register($attributes)

@@ -23,7 +23,7 @@ class UserTasksService
   public function getUserTasks($userId)
   {
     $userProfiles = UserProfile::where('user_id', $userId)->first();
-    $query = $this->userTasks->newQuery();
+    $query = $this->userTask->newQuery();
     return $query->where('user_id', '=', $userProfiles->user_id)->get();
   }
 }
