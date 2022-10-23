@@ -26,11 +26,12 @@
                     </div>
                 </header>
             @endif
-            
+
+            @yield('content')
             <!-- Page Content -->
-            <main>
+            {{-- <main>
                 {{ $slot }}
-            </main>
+            </main> --}}
         </div>
         @livewireScripts
     </body>

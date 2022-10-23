@@ -12,6 +12,10 @@ class UserTasks extends Component
     public string $detail;
     public string $deadline;
 
+    protected $listeners = [
+
+    ];
+
     public function rules()
     {
         return [
@@ -31,8 +35,13 @@ class UserTasks extends Component
 
     }
 
+    public function cancelEdit()
+    {
+
+    }
+
     public function render()
     {
-        return view('livewire.user-tasks');
+        return view('livewire.user.userTask.index');
     }
 }

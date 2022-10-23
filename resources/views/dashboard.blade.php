@@ -1,25 +1,9 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     @if ($attributes)
         @foreach ($attributes as $attribute)
-            <style>
-                input:checked+.tab-label .test {
-                    background-color: #000;
-                }
-
-                input:checked+.tab-label .test svg {
-                    /* transform: rotate(1deg); */
-                    stroke: #fff;
-                }
-
-                input:checked+.tab-label::after {
-                    /* transform: rotate(90deg); */
-                }
-
-                input:checked~.tab-content {
-                    max-height: 100vh;
-                }
-            </style>
-
+            <x-user.drag-bar-style></x-user.drag-bar-style>
             <main @data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
                 <section class="shadow row">
                     <div class="tabs bg-white">
@@ -68,4 +52,4 @@
             </main>
         @endforeach
     @endif
-</x-app-layout>
+@endsection
