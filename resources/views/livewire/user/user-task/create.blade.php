@@ -3,24 +3,30 @@
          details: @entangle('details'),
          deadline: @entangle('deadline'),
     }"
-    @save-create-successful.window=" 
+    @save-create-confirm.window=" 
         Swal.fire({
-            icon: 'warning',
-            text: 'Do you want to delete this?',
+            icon: 'question',
+            title: '下記の内容で作成しますか？',
             showCancelButton: true,
-            confirmButtonText: 'Delete',
-            confirmButtonColor: '#e3342f',
+            confirmButtonText: '作成',
+            cancelButtonText: '修正',
+            reverseButtons: true,
         }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById(formId).submit();
+                $wire.emit('save-create');
             }
         });
-   "
-"
+    "
+    @save-create-successful.window=" 
+        Swal.fire({
+            icon: 'success',
+            title: '作成完了！',
+            timer: 1000,
+            showConfirmButton: false,
+        })
+    "
 >
     <x-user.drag-bar-style></x-user.drag-bar-style>
-    {{-- <button href="#" x-on:click="$wire.emit('save-create')">Delete</button> --}}
-{{-- <form id="delete-product-form-39" action="http://myapp.test/product/39/delete" method="POST"></form> --}}
     <main x-data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
         <section class="shadow row">
             <div class="tabs bg-white">
@@ -42,13 +48,26 @@
                         </header>
                         <div class="tab-content max-h-0" :class=" isChecked ? 'max-h-screen' : ''">
                             <form class="m-4">
-                                <x-user.input name="title" id="title" type="text" placeholder="title"
-                                    required="true"></x-user.input>
-                                <x-user.input name="details" id="details" type="text" placeholder="details"
-                                    required="true"></x-user.input>
-                                <x-user.input name="deadline" id="deadline" type="date" placeholder="deadline"
-                                    required="true"></x-user.input>
-                                <x-user.button text="作成"></x-user.button>
+                                <x-user.input name="title" 
+                                              id="title" 
+                                              type="text" 
+                                              placeholder="title"
+                                              required="true"
+                                ></x-user.input>
+                                <x-user.input name="details" 
+                                              id="details" 
+                                              type="text" 
+                                              placeholder="details"
+                                              required="true"
+                                ></x-user.input>
+                                <x-user.input name="deadline" 
+                                              id="deadline" 
+                                              type="date" 
+                                              placeholder="deadline"
+                                ></x-user.input>
+                                <x-user.button text="作成"
+                                               emit="save-create-confirm"
+                                ></x-user.button>
                             </form>
                         </div>
                     </div>

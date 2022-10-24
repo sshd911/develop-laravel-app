@@ -7,7 +7,7 @@
         stroke: #fff;
     }
     input:checked+.tab-label::after {
-        /* transform: rotate(90deg); */
+    /* transform: rotate(90deg); */
     }
     input:checked~.tab-content {
         max-height: 100vh;
