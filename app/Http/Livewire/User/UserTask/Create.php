@@ -8,12 +8,12 @@ use Livewire\Component;
 class Create extends Component
 {
     public UserTask $userTask;
-    public string $title;
-    public string $detail;
-    public string $deadline;
+    public string $title = '';
+    public string $details = '';
+    public string $deadline = '';
 
     protected $listeners = [
-
+        'save-create' => 'save'
     ];
 
     public function rules()
@@ -25,14 +25,15 @@ class Create extends Component
         ];
     }
 
-    public function mount()
+    public function mount() 
     {
 
     }
 
     public function save()
     {
-
+        // dd('d');
+        $this->dispatchBrowserEvent('save-create-successful');
     }
 
     public function cancelEdit()

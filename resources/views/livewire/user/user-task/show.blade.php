@@ -1,10 +1,9 @@
-@extends('layouts.app')
-
-@section('content')
+<div x-data="{
+    attributes: @entangle('attributes')
+}">
     @if ($attributes)
         @foreach ($attributes as $attribute)
-            <x-user.drag-bar-style></x-user.drag-bar-style>
-            <main @data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
+            <main x-data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
                 <section class="shadow row">
                     <div class="tabs bg-white">
                         <div class="border-b overflow-hidden">
@@ -22,8 +21,8 @@
                                         class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                                         <!-- icon by feathericons.com -->
                                         <svg aria-hidden="true" class="" data-reactid="266" fill="none"
-                                            height="24" stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" viewbox="0 0 24 24" width="24"
+                                            height="24" stroke="#606F7B" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <polyline points="6 9 12 15 18 9">
                                             </polyline>
@@ -34,7 +33,7 @@
                                     <div class="pl-8 pr-8 pb-5 text-grey-darkest">
                                         <ul class="pl-4">
                                             <li class="pb-2">
-                                                @ {{ $attribute->name }}
+                                                aaaa
                                             </li>
                                             <li class="pb-2">
                                                 hoge
@@ -52,4 +51,4 @@
             </main>
         @endforeach
     @endif
-@endsection
+</div>

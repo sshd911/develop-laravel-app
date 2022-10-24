@@ -12,4 +12,4 @@
     input:checked~.tab-content {
         max-height: 100vh;
     }
-  </style>
+</style>
