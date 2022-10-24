@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User\UserTask;
 
+use App\Models\UserProfile;
 use App\Models\UserTask;
 use App\Services\UserTaskService;
 use Illuminate\Support\Facades\Auth;
@@ -22,9 +23,9 @@ class Create extends Component
     public function rules()
     {
         return [
-            'title' => ['required'],
-            'details' => ['required'],
-            // 'deadline' => ['nullable'],
+            'title' => 'required|string|min:5',
+            'details' => 'required|string|min:10',
+            'deadline' => 'nullable',
         ];
     }
 
@@ -34,25 +35,26 @@ class Create extends Component
     }
     public function confirm()
     {
+        // dd('d');
+        // try {
+        //     $this->validate();
+        // } catch (\Illuminate\Validation\ValidationException $e) {
+        //     $this->dispatchBrowserEvent('validation-error', $e->errors());
+        //     $this->validate();
+        // }
+        // dd('d2');
         $this->dispatchBrowserEvent('save-create-confirm');
     }
 
     public function save(UserTaskService $userTaskService)
     {
-        // try {
-        //     dd($this->validate());
-        // } catch (\Illuminate\Validation\ValidationException $e) {
-        //     $this->dispatchBrowserEvent('validation-error', $e->errors());
-        //     $this->validate();
-        // }
-
-        // $attributes = [
-        //     'title' => $this->title,
-        //     'details' => $this->details,
-        //     'deadline' => $this->deadline,
-        // ];
-
-        // $userTaskService->create(Auth::id(), $attributes);
+        $attributes = [
+            'user_id' => UserProfile::where('user_id', '=', Auth::id())->pluck('user_id')[0],
+            'title' => $this->title,
+            'details' => $this->details,
+            'deadline' => $this->deadline,
+        ];
+        $userTaskService->create($attributes);
         $this->dispatchBrowserEvent('save-create-successful');
     }
 

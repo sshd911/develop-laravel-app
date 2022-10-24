@@ -36,7 +36,7 @@
                             class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox"                          ¸¸
                             id="bt">
                         <header
-                            class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label">
+                            class="flex justify-between items-center pt-4 pl-8 pr-8 cursor-pointer select-none tab-label">
                             <span class="text-grey-darkest font-thin text-xl">新規作成</span>
                             <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                                 <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24"
@@ -46,29 +46,33 @@
                                 </svg>
                             </div>
                         </header>
-                        <div class="tab-content max-h-0" :class=" isChecked ? 'max-h-screen' : ''">
-                            <form class="m-4">
+                        <div class="tab-content max-h-0 m-2" :class=" isChecked ? 'max-h-screen' : ''">
+                            {{-- <form class="m-4" > --}}
                                 <x-user.input name="title" 
                                               id="title" 
+                                              {{-- model="title" --}}
                                               type="text" 
                                               placeholder="title"
                                               required="true"
                                 ></x-user.input>
                                 <x-user.input name="details" 
                                               id="details" 
+                                              {{-- model="details" --}}
                                               type="text" 
                                               placeholder="details"
                                               required="true"
                                 ></x-user.input>
                                 <x-user.input name="deadline" 
                                               id="deadline" 
+                                              {{-- model="deadline" --}}
                                               type="date" 
                                               placeholder="deadline"
                                 ></x-user.input>
                                 <x-user.button text="作成"
                                                emit="save-create-confirm"
+                                               type="submit"
                                 ></x-user.button>
-                            </form>
+                            {{-- </form> --}}
                         </div>
                     </div>
                 </div>

@@ -12,8 +12,7 @@
                                     class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox"
                                     id="bt">
                                 <header
-                                    class="flex justify-between items-center p-5 pl-8 pr-8 cursor-pointer select-none tab-label"
-                                    :class="isChecked ? 'bg-black' : ''">
+                                    class="flex justify-between items-center p-4 pl-8 pr-8 cursor-pointer select-none tab-label">
                                     <span class="text-grey-darkest font-thin text-xl">
                                         Massa vitae tortor condimentum lacinia quis vel eros donec
                                     </span>

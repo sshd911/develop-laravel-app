@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('user_tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('user_id')->on('user_profiles')->comment('会員ID');
-            $table->foreignId('task_id')->references('id')->on('task_types')->comment('タスクの種類');
-            $table->string('details')->comment('タスク詳細');
-            $table->string('remarks')->comment('備考');
+            // $table->foreignId('task_id')->references('id')->on('task_types')->comment('タスクの種類');
+            $table->string('details')->nullable()->comment('タスク詳細');
+            $table->string('remarks')->nullable()->comment('備考');
             $table->timestamp('deadline')->comment('期限');
             $table->timestamps();
         });

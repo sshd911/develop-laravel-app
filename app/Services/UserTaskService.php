@@ -27,8 +27,8 @@ class UserTaskService
     return $query->where('user_id', '=', $userProfiles->user_id)->get();
   }
 
-  public function create($userId, $attributes)
+  public function create($attributes)
   {
-    $this->userTask->create($userId, $attributes);
+    $this->userTask->create($attributes);
   }
 }
