@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('user_id')->on('user_profiles')->comment('会員ID');
             // $table->foreignId('task_id')->references('id')->on('task_types')->comment('タスクの種類');
+            $table->string('title')->nullable()->comment('タスクタイトル');
             $table->string('details')->nullable()->comment('タスク詳細');
             $table->string('remarks')->nullable()->comment('備考');
             $table->timestamp('deadline')->comment('期限');

@@ -40,8 +40,7 @@
                             <span class="text-grey-darkest font-thin text-xl">新規作成</span>
                             <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
                                 <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24"
-                                    stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                a                                                                                                                                                                                                                                                    viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </div>
@@ -50,21 +49,21 @@
                             {{-- <form class="m-4" > --}}
                                 <x-user.input name="title" 
                                               id="title" 
-                                              {{-- model="title" --}}
+                                              model="title"
                                               type="text" 
                                               placeholder="title"
                                               required="true"
                                 ></x-user.input>
                                 <x-user.input name="details" 
                                               id="details" 
-                                              {{-- model="details" --}}
+                                              model="details"
                                               type="text" 
                                               placeholder="details"
                                               required="true"
                                 ></x-user.input>
                                 <x-user.input name="deadline" 
                                               id="deadline" 
-                                              {{-- model="deadline" --}}
+                                              model="deadline"
                                               type="date" 
                                               placeholder="deadline"
                                 ></x-user.input>

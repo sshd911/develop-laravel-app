@@ -21,9 +21,12 @@ class UserProfileService
 
     public function register($attributes)
     {
-      // $this->model->create([
-      //   'email' => $attributes[1]
-      // ]);
+      $this->userProfile->create($attributes);
+    }
+
+    public function getUserWithUserProfile($userId)
+    {
+      return User::join('user_profiles', 'users.id', '=', 'user_profiles.user_id')->where('user_id', '=', $userId)->get();
     }
   
     public function update(int $userId, array $data)

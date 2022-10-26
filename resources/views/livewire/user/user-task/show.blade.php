@@ -1,5 +1,4 @@
 <div x-data="{
-    attributes: @entangle('attributes')
 }">
     @if ($attributes)
         @foreach ($attributes as $attribute)
@@ -14,7 +13,7 @@
                                 <header
                                     class="flex justify-between items-center p-4 pl-8 pr-8 cursor-pointer select-none tab-label">
                                     <span class="text-grey-darkest font-thin text-xl">
-                                        Massa vitae tortor condimentum lacinia quis vel eros donec
+                                        {{ $attribute->title}}
                                     </span>
                                     <div
                                         class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
@@ -32,13 +31,13 @@
                                     <div class="pl-8 pr-8 pb-5 text-grey-darkest">
                                         <ul class="pl-4">
                                             <li class="pb-2">
-                                                aaaa
+                                                {{ $attribute->title}}
                                             </li>
                                             <li class="pb-2">
-                                                hoge
+                                                {{ $attribute->detials}}
                                             </li>
                                             <li class="pb-2">
-                                                Viverra orci sagittis eu volutpat odio facilisis mauris
+                                                {{ $attribute->deadline}}
                                             </li>
                                         </ul>
                                     </div>
