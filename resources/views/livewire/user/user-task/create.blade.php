@@ -2,6 +2,7 @@
          title: @entangle('title').defer,
          details: @entangle('details').defer,
          deadline: @entangle('deadline').defer,
+         isChecked: false,
     }"
     @save-create-confirm.window=" 
         Swal.fire({
@@ -18,16 +19,17 @@
         });
     "
     @save-create-successful.window=" 
+        this.closeForm,
         Swal.fire({
             icon: 'success',
             title: '作成完了！',
             timer: 1000,
             showConfirmButton: false,
-        })
+        }).then(() => {});
     "
 >
     <x-user.drag-bar-style></x-user.drag-bar-style>
-    <main x-data="{ isChecked: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
+    <main class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
         <section class="shadow row">
             <div class="tabs bg-white">
                 <div class="border-b overflow-hidden">
@@ -80,3 +82,10 @@
         </section>
     </main>
 </div>
+<script>
+    function closeForm(){
+        setTimeout(() => {
+            this.isChecked = false;
+        }, 1300);
+    }
+</script>

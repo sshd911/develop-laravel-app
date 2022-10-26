@@ -55,6 +55,9 @@ class Create extends Component
             'details' => $this->details,
             'deadline' => $this->deadline,
         ];
+        $this->title = '';
+        $this->details = '';
+        $this->deadline = '';
         $userTaskService->create($attributes);
         $this->dispatchBrowserEvent('save-create-successful');
     }
