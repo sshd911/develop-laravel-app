@@ -32,21 +32,23 @@
             <div class="tabs bg-white">
                 <div class="border-b overflow-hidden">
                     <div class="border-l-2 border-transparent relative">
-                        <input @click="isChecked = !isChecked"
-                            class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox"                          ¸¸
-                            id="bt">
-                        <header
-                            class="flex justify-between items-center pt-4 pl-8 pr-8 cursor-pointer select-none tab-label">
-                            <span class="text-grey-darkest font-thin text-xl">新規作成</span>
-                            <div class="rounded-full border border-grey w-7 h-7 flex items-center justify-center test">
-                                <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24"
-                                    stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
+                        <hearder class="flex flex-wrap pt-4 pl-8 pr-8">
+                            <span class="flex-1 text-grey-darkest font-thin text-xl">新規作成</span>
+                            <div class="flex-none sm:flex sm:items-center sm:ml-6">
+                                <x-dropdown align="right" width="48" original="-top-4 right-6">
+                                    <x-slot name="trigger">
+                                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">︙</button>
+                                    </x-slot>
+                                    <x-slot name="content">
+                                        <x-user.dropdown-button event="isChecked"
+                                                                text="編集"
+                                        >
+                                        </x-user.dropdown-button>
+                                    </x-slot>
+                                </x-dropdown>
                             </div>
-                        </header>
+                        </hearder>
                         <div class="tab-content max-h-0 m-2" :class=" isChecked ? 'max-h-screen' : ''">
-                            {{-- <form class="m-4" > --}}
                                 <x-user.input name="title" 
                                               id="title" 
                                               model="title"
@@ -71,7 +73,6 @@
                                                emit="save-create-confirm"
                                                type="submit"
                                 ></x-user.button>
-                            {{-- </form> --}}
                         </div>
                     </div>
                 </div>
