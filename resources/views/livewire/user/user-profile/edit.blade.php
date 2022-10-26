@@ -1,11 +1,11 @@
 <div x-data="{
-         isEdit: @entangle('isEdit').defer,
          name: @entangle('name').defer,
          email: @entangle('email').defer,
          postcode: @entangle('postcode').defer,
          telephone: @entangle('telephone').defer,
          birthday: @entangle('birthday').defer,
          gender: @entangle('gender').defer,
+         isEdit: false,
     }"
 >
 

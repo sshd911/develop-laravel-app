@@ -12,15 +12,20 @@ class Show extends Component
     public UserTask $userTask;
     public UserTaskService $userTaskService;
     public $attributes;
-    public bool $showModal = false;
 
     protected $listeners = [
-
+        'save-edit-confirm' => 'confirm',
+        'cancel-edit' => 'cancelEdit',
     ];
 
     public function rules()
     {
-        return [];
+        return [
+          'title' => 'required|string',
+          'details' => 'required|string',
+          'remarks' => 'required|string',
+          'deadline' => 'required|string',
+        ];
     }
 
     public function mount(UserTaskService $userTaskService)
@@ -28,9 +33,29 @@ class Show extends Component
       $this->attributes = $userTaskService->getUserTasks(Auth::id());
     }
 
-    public function save()
+    public function confirm()
     {
-      // dd('a');
+      $this->validate();
+      $this->save();
+    }
+  
+    public function save(UserTaskService $userTaskService)
+    {
+        // try {
+        //     $this->validate();
+        // } catch (\Illuminate\Validation\ValidationException $e) {
+        //     $this->dispatchBrowserEvent('validation-error', $e->errors());
+        //     $this->validate();
+        // }
+        $attributes = [
+            'user_id' => Auth::id(),
+            'title' => $this->title,
+            'details' => $this->details,
+            'deadline' => $this->deadline,
+        ];
+
+        $userTaskService->update($attributes);
+        $this->dispatchBrowserEvent('save-create-confirm');
     }
 
     public function cancelEdit()

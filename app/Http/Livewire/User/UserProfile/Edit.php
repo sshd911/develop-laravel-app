@@ -15,8 +15,6 @@ class Edit extends Component
     public ?string $birthday;
     public ?int $gender;
 
-    public bool $isEdit = false;
-
     protected $listeners = [
 
     ];

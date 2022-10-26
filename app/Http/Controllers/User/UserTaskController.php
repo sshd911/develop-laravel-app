@@ -20,6 +20,7 @@ class UserTaskController extends Controller
     public function index()
     {
         $attributes = $this->userTaskSercice->getUserTasks(Auth::id());
+        // dd($attributes);
         return view('user.userTask.index', compact('attributes'));
     }
 }
