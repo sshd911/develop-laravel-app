@@ -1,7 +1,7 @@
 <div x-data="{
-         title: @entangle('title'),
-         details: @entangle('details'),
-         deadline: @entangle('deadline'),
+         title: @entangle('title').defer,
+         details: @entangle('details').defer,
+         deadline: @entangle('deadline').defer,
     }"
     @save-create-confirm.window=" 
         Swal.fire({
