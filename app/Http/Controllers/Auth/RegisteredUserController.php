@@ -54,11 +54,7 @@ class RegisteredUserController extends Controller
 
         $this->userProfileService->register([
             'user_id' => $user->id,
-            'telehone' => '000-0000-0000',
-            'postcode' => '000-0000',
             'birthday' => '2000-01-01' ,
-            'gender' => 1,
-            'memo' => '',
         ]);
         
         event(new Registered($user));

@@ -20,10 +20,4 @@ class UserController extends Controller
     {
         return view('user.index');
     }
-
-    public function update(Request $request) 
-    {
-        return $this->userService->update(Auth::id(), $request);
-    }
-    
 }

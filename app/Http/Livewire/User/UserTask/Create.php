@@ -36,14 +36,12 @@ class Create extends Component
 
     public function confirm()
     {
-        // dd('d');
         // try {
         //     $this->validate();
         // } catch (\Illuminate\Validation\ValidationException $e) {
         //     $this->dispatchBrowserEvent('validation-error', $e->errors());
         //     $this->validate();
         // }
-        // dd('d2');
         $this->dispatchBrowserEvent('save-create-confirm');
     }
 
