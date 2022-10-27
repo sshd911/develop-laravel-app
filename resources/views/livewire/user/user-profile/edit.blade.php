@@ -6,7 +6,6 @@
     }"
 >
 
-
 @foreach ($attributes as $attribute)
         <div class="py-2" x-show="!isEdit">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -32,7 +31,7 @@
                         </div>
                         <div class='flex flex-wrap mb-6'>
                             <div class="flex-1 font-bold">表示名</div>
-                            <div class="flex-1">{{ $attribute->name }}</div>
+                            <div class="flex-1">{{ $attribute->name ?? '未設定'}}</div>
                         </div>
                         <div class='flex flex-wrap mb-6'>
                             <div class="flex-1 font-bold">メールアドレス</div>
@@ -40,7 +39,7 @@
                         </div>
                         <div class='flex flex-wrap mb-6'>
                             <div class="flex-1 font-bold">生年月日</div>
-                            <div class="flex-1">{{ $attribute->birthday }}</div>
+                            <div class="flex-1">{{ $attribute->birthday　}}</div>
                         </div>
                     </div>
                 </div>
@@ -74,8 +73,7 @@
                         <div class='flex flex-wrap'>
                             <div class="flex-1 font-bold mb-6">表示名</div>
                             <div class="flex-1">
-                                <x-user.input value="{{ $attribute->name }}"
-                                              id="title" 
+                                <x-user.input id="title" 
                                               model="title"
                                               type="text" 
                                               placeholder="残業太郎"
@@ -86,8 +84,7 @@
                         <div class='flex flex-wrap'>
                             <div class="flex-1 font-bold mb-6">メールアドレス</div>
                             <div class="flex-1">
-                                <x-user.input value="email"
-                                              id="email" 
+                                <x-user.input id="email" 
                                               model="email"
                                               type="email" 
                                               placeholder="example@gmail.com"
@@ -98,8 +95,7 @@
                         <div class='flex flex-wrap'>
                             <div class="flex-1 font-bold mb-6">生年月日</div>
                             <div class="flex-1">
-                                <x-user.input value="{{ $attribute->birthday }}"
-                                              id="birthday" 
+                                <x-user.input id="birthday" 
                                               model="birthday"
                                               type="date" 
                                               placeholder="birthday"

@@ -19,7 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
 });
 
 Route::get('/dashboard', [DashboardContrller::class, 'index'])->name('dashboard');
@@ -34,8 +42,6 @@ Route::group(
         ],
     ],
     function () {
-        // user index
-        Route::get('index', [UserController::class, 'index'])->name('index');
         // userTasks
         Route::group(['prefix' => 'userTask', 'as' => 'userTask.'], function () {
             Route::get('index', [UserTaskController::class, 'index'])->name('index');
