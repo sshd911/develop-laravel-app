@@ -83,17 +83,17 @@
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('user.userTask.index')">
                 {{ __('自分のタスク') }}
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('user.userRequest.index')">
                 {{ __('依頼中のタスク') }}
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('user.userProfile.index')">
                 {{ __('設定') }}
             </x-responsive-nav-link>
         </div>

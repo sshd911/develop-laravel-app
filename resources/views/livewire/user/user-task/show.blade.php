@@ -28,7 +28,7 @@
     <x-user.drag-bar-style></x-user.drag-bar-style>
     @if ($attributes)
         @foreach ($attributes as $attribute)
-            <main x-data="{ isChecked: false, isEdit: false }" class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
+            <main x-data="{ isChecked: false, isEdit: false }" class="md:w-3/5 pt-2 mt-2 mx-auto" for="bt">
                 <section x-show="!isEdit"
                          class="shadow row">
                     <div class="tabs bg-white">
@@ -121,7 +121,7 @@
                                     </hearder>
                                 <div class="tab-content max-h-0" :class="isChecked ? 'max-h-screen' : ''">
                                     <div class='text-grey-darkest p-4 pl-10 flex flex-wrap flex-end'>
-                                        <div class="flex-1 font-bold">タイトル</div>
+                                        {{-- <div class="flex-1 font-bold">タイトル</div> --}}
                                         <div class="flex-1">
                                             <x-user.input value="title"
                                                           id="title" 
@@ -133,7 +133,7 @@
                                         </div>
                                     </div>
                                     <div class='text-grey-darkest p-4 pl-10 flex flex-wrap'>
-                                        <div class="flex-1 font-bold">詳細</div>
+                                        {{-- <div class="flex-1 font-bold">詳細</div> --}}
                                         <div class="flex-1">
                                             <x-user.input value="details"
                                                           id="details" 
@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                     <div class='text-grey-darkest p-4 pl-10 flex flex-wrap'>
-                                        <div class="flex-1 font-bold">備考</div>
+                                        {{-- <div class="flex-1 font-bold">備考</div> --}}
                                         <div class="flex-1">
                                             <x-user.input value="remarks"
                                                           id="remarks" 
@@ -157,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class='text-grey-darkest p-4 pl-10 flex flex-wrap'>
-                                        <div class="flex-1 font-bold">期限</div>
+                                        {{-- <div class="flex-1 font-bold">期限</div> --}}
                                         <div class="flex-1">
                                             <x-user.input value="deadline"
                                                           id="deadline" 

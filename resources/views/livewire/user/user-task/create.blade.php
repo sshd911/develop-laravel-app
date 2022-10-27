@@ -29,7 +29,7 @@
     "
 >
     <x-user.drag-bar-style></x-user.drag-bar-style>
-    <main class="w-3/5 pt-2 mt-2 mx-auto" for="bt">
+    <main class="md:w-3/5 pt-2 mt-2 mx-auto" for="bt">
         <section class="shadow row">
             <div class="tabs bg-white">
                 <div class="border-b overflow-hidden">
