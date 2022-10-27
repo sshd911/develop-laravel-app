@@ -17,35 +17,19 @@ class UserProfileSeeder extends Seeder
     {
         UserProfile::factory()->create([
             'user_id' => '1',
-            'telephone' => '000-0000-0000',
-            'post_code' => '111-1111',
             'birthday' => now()->format('Y-m-d'),
-            'memo' => 'memomemomeo',
-            'gender' => 1,
         ]);
         UserProfile::factory()->create([
             'user_id' => '2',
-            'telephone' => '000-0000-0000',
-            'post_code' => '111-1111',
             'birthday' => now()->format('Y-m-d'),
-            'memo' => 'memomemomeo' ,
-            'gender' => 1,
         ]);
         UserProfile::factory()->create([
             'user_id' => '3',
-            'telephone' => '000-0000-0000',
-            'post_code' => '111-1111',
             'birthday' => now()->format('Y-m-d'),
-            'memo' => 'memomemomeo' ,
-            'gender' => 1,
         ]);
         UserProfile::factory()->create([
             'user_id' => '4',
-            'telephone' => '000-0000-0000',
-            'post_code' => '111-1111',
             'birthday' => now()->format('Y-m-d'),
-            'memo' => 'memomemomeo' ,
-            'gender' => 1,
         ]);
     }
 }
