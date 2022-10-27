@@ -1,10 +1,7 @@
 <div x-data="{
          name: @entangle('name').defer,
          email: @entangle('email').defer,
-         postcode: @entangle('postcode').defer,
-         telephone: @entangle('telephone').defer,
          birthday: @entangle('birthday').defer,
-         gender: @entangle('gender').defer,
          isEdit: false,
     }"
 >
@@ -41,22 +38,10 @@
                             <div class="flex-1 font-bold">メールアドレス</div>
                             <div class="flex-1">{{ $attribute->email }}</div>
                         </div>
-                        {{-- <div class='flex flex-wrap'>
-                            <div class="flex-1 font-bold">電話番号</div>
-                            <div class="flex-1">{{ $attribute->telephone }}</div>
-                        </div> --}}
-                        {{-- <div class='flex flex-wrap'> --}}
-                            {{-- <div class="flex-1 font-bold">郵便番号</div> --}}
-                            {{-- <div class="flex-1">{{ $attribute->postcode }}</div> --}}
-                        {{-- </div> --}}
                         <div class='flex flex-wrap mb-6'>
                             <div class="flex-1 font-bold">生年月日</div>
                             <div class="flex-1">{{ $attribute->birthday }}</div>
                         </div>
-                        {{-- <div class='flex flex-wrap'>
-                            <div class="flex-1 font-bold">性別</div>
-                            <div class="flex-1">{{ $attribute->gender }}</div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -110,30 +95,6 @@
                                 ></x-user.input>
                             </div>
                         </div>
-                        {{-- <div class='flex flex-wrap'>
-                            <div class="flex-1 font-bold">電話番号</div>
-                            <div class="flex-1">
-                                <x-user.input value="{{ $attribute->telephone }}"
-                                              id="telephone" 
-                                              model="telephone"
-                                              type="text" 
-                                              placeholder="telephone"
-                                              required="true"
-                                ></x-user.input>
-                            </div>
-                        </div> --}}
-                        {{-- <div class='flex flex-wrap'>
-                            <div class="flex-1 font-bold">郵便番号</div>
-                            <div class="flex-1">
-                                <x-user.input value="{{ $attribute->postcode }}"
-                                              id="postcode" 
-                                              model="postcode"
-                                              type="text" 
-                                              placeholder="postcode"
-                                              required="true"
-                                ></x-user.input>
-                            </div>
-                        </div> --}}
                         <div class='flex flex-wrap'>
                             <div class="flex-1 font-bold mb-6">生年月日</div>
                             <div class="flex-1">
@@ -146,18 +107,6 @@
                                 ></x-user.input>
                             </div>
                         </div>
-                        {{-- <div class='flex flex-wrap'>
-                            <div class="flex-1 font-bold">性別</div>
-                            <div class="flex-1">
-                                <x-user.input value="{{ $attribute->gender }}"
-                                              id="gender" 
-                                              model="gender"
-                                              type="radio" 
-                                              placeholder="tigendertle"
-                                              required="gender"
-                                ></x-user.input>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>

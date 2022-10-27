@@ -10,14 +10,19 @@ class Edit extends Component
 
     public ?string $name;
     public ?string $email;
-    public ?string $postcode;
-    public ?string $telephone;
     public ?string $birthday;
-    public ?int $gender;
 
     protected $listeners = [
-
+        'save-create-confirm' => 'confirm',
+        'save-create' => 'save',
     ];
+
+    public function rules()
+    {
+        return [
+
+        ];
+    }
 
     public function mount($attributes)
     {
@@ -30,6 +35,11 @@ class Edit extends Component
         //     $this->birthday = $attribute->birthday;
         //     $this->gender = $attribute->gender;
         // }
+    }
+
+    public function confirm()
+    {
+        $this->dispatchBrowserEvent('save-create-confirm');
     }
 
     public function save()
