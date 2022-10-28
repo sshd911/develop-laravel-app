@@ -42,6 +42,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'birthday' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -54,9 +55,9 @@ class RegisteredUserController extends Controller
 
         $this->userProfileService->register([
             'user_id' => $user->id,
-            'birthday' => '2000-01-01' ,
+            'birthday' => $request->birthday,
         ]);
-        
+
         event(new Registered($user));
 
         Auth::login($user);

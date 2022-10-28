@@ -21,7 +21,7 @@ class UserProfileService
 
     public function register($attributes)
     {
-      $this->userProfile->create($attributes);
+      $this->userProfile->insert($attributes);
     }
 
     public function getUserWithUserProfile($userId)

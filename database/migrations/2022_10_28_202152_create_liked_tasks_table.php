@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_tasks', function (Blueprint $table) {
+        Schema::create('liked_tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('user_id')->on('user_profiles')->comment('会員ID');
-            $table->string('title')->nullable()->comment('タスクタイトル');
-            $table->string('details')->nullable()->comment('タスク詳細');
-            $table->string('remarks')->nullable()->comment('備考');
-            $table->timestamp('deadline')->comment('期限');
-            $table->boolean('is_finished')->default(0)->comment('0：未完了, 1:完了');
+            $table->foreignId('owner_id')->references('user_id')->on('user_profiles')->comment('持ち主ID');
+            $table->foreignId('task_id')->references('id')->on('user_tasks')->comment('タスクID');
+            $table->boolean('is_finished')->references('is_finished')->on('user_tasks')->comment('0：未完了, 1:完了');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_tasks');
+        Schema::dropIfExists('liked_tasks');
     }
 };

@@ -18,11 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->comment('会員ID');
             $table->dateTime('birthday')->comment('生年月日');
             $table->timestamps();
-            // $table->string('telephone')->nullable()->comment('電話番号');
-            // $table->string('post_code')->nullable()->comment('自宅住所 郵便番号');
-            // $table->foreignId('prefecture_id')->nullable()->references('id')->on('prefectures')->comment('自宅住所 都道府県');
-            // $table->unsignedTinyInteger('gender')->comment('性別; 1: 男性, 2: 女性, 3: その他');
-            // $table->text('memo')->nullable()->comment('通信欄');
         });
     }
 
