@@ -36,7 +36,7 @@ class Show extends Component
     public function confirm()
     {
       $this->validate();
-      $this->save();
+      // $this->save();
     }
   
     public function save(UserTaskService $userTaskService)
@@ -55,7 +55,7 @@ class Show extends Component
         ];
 
         $userTaskService->update($attributes);
-        $this->dispatchBrowserEvent('save-create-confirm');
+        $this->dispatchBrowserEvent('save-edit-confirm');
     }
 
     public function cancelEdit()

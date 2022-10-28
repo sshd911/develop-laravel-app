@@ -15,7 +15,7 @@ use Illuminate\Validation\Rules;
 class RegisteredUserController extends Controller
 {
     public $userProfileService;
-
+    public $userService;
     public function __construct(UserProfileService $userProfileService)
     {
         $this->userProfileService = $userProfileService;
@@ -41,21 +41,21 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'birthday' => ['required', 'date'],
+            'name' => ['nullable', 'string', 'max:255'],
+            'birthday' => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'name' => $request->name ?? '未設定',
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
         $this->userProfileService->register([
             'user_id' => $user->id,
-            'birthday' => $request->birthday,
+            'birthday' => $request->birthday ?? now(),
         ]);
 
         event(new Registered($user));

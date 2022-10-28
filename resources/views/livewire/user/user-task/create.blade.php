@@ -34,7 +34,7 @@
             <div class="tabs bg-white">
                 <div class="border-b overflow-hidden">
                     <div class="border-l-2 border-transparent relative">
-                        <hearder class="flex flex-wrap pt-4 pl-8 pr-8">
+                        <header class="flex flex-wrap pt-4 pl-8 pr-8">
                             <span class="flex-1 text-grey-darkest font-thin text-xl">新規作成</span>
                             <div class="flex-none sm:flex sm:items-center sm:ml-6">
                                 <x-dropdown align="right" width="48" original="-top-4 right-6">
@@ -49,7 +49,7 @@
                                     </x-slot>
                                 </x-dropdown>
                             </div>
-                        </hearder>
+                        </header>
                         <div class="tab-content max-h-0 m-2" :class=" isChecked ? 'max-h-screen' : ''">
                                 <x-user.input name="title" 
                                               id="title" 

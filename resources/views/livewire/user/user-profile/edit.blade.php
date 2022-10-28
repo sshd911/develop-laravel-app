@@ -73,11 +73,11 @@
                         <div class='flex flex-wrap'>
                             <div class="flex-1 font-bold mb-6">表示名</div>
                             <div class="flex-1">
-                                <x-user.input id="title" 
-                                              model="title"
+                                <x-user.input id="name" 
+                                              model="name"
                                               type="text" 
                                               placeholder="残業太郎"
-                                              required="true"
+                                              required="name"
                                 ></x-user.input>
                             </div>
                         </div>
