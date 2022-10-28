@@ -25,6 +25,13 @@
         }).then((result) => {});
     "
 >
+@push('script')
+    function closeForm(){
+        setTimeout(() => {
+            this.isChecked = false;
+        }, 1300);
+    }
+@endpush
     <x-user.drag-bar-style></x-user.drag-bar-style>
     @if ($attributes)
         @foreach ($attributes as $attribute)
@@ -129,6 +136,7 @@
                                                           type="text" 
                                                           placeholder="Stripeの導入"
                                                           required="true"
+                                                          name='title'
                                             ></x-user.input>
                                         </div>
                                     </div>
@@ -141,6 +149,7 @@
                                                           type="text" 
                                                           placeholder="フレームワーク：laravel, etc..."
                                                           required="true"
+                                                          name='details'
                                             ></x-user.input>
                                         </div>
                                     </div>
@@ -153,6 +162,7 @@
                                                           type="text" 
                                                           placeholder="セキュリティ高め"
                                                           required="true"
+                                                          name='remarks'
                                             ></x-user.input>
                                         </div>
                                     </div>
@@ -164,14 +174,15 @@
                                                           model="deadline"
                                                           type="date" 
                                                           required="true"
+                                                          name='deadline'
                                             ></x-user.input>
                                         </div>
                                     </div>
-                                    <div class="m-4">
-                                        <x-user.button text="更新"
-                                                       emit="save-edit-confirm"
-                                                       type="submit"
-                                        ></x-user.button>
+                                    <div class="flex items-center justify-center mt-4">
+                                        <x-primary-button emit="save-edit-confirm" 
+                                                          text="更新" 
+                                                          class="ml-3"
+                                        ></x-primary-button>
                                     </div>
                                 </div>
                             </div>
@@ -182,10 +193,3 @@
         @endforeach
     @endif
 </div>
-<script>
-    function closeForm(){
-        setTimeout(() => {
-            this.isChecked = false;
-        }, 1300);
-    }
-</script>

@@ -78,6 +78,7 @@
                                               type="text" 
                                               placeholder="残業太郎"
                                               required="name"
+                                              name="name"
                                 ></x-user.input>
                             </div>
                         </div>
@@ -89,6 +90,7 @@
                                               type="email" 
                                               placeholder="example@gmail.com"
                                               required="true"
+                                              name="email"
                                 ></x-user.input>
                             </div>
                         </div>
@@ -100,8 +102,15 @@
                                               type="date" 
                                               placeholder="birthday"
                                               required="birthday"
+                                              name="birthday"
                                 ></x-user.input>
                             </div>
+                        </div>
+                        <div class="flex items-center justify-end mt-4">
+                            <x-primary-button emit="save-edit-confirm" 
+                                              text="更新" 
+                                              class="ml-3"
+                            ></x-primary-button>
                         </div>
                     </div>
                 </div>

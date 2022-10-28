@@ -28,6 +28,13 @@
         }).then(() => {});
     "
 >
+@push('script')
+    function closeForm(){
+        setTimeout(() => {
+            this.isChecked = false;
+        }, 1300);
+    }
+@endpush
     <x-user.drag-bar-style></x-user.drag-bar-style>
     <main class="md:w-3/5 pt-2 mt-2 mx-auto" for="bt">
         <section class="shadow row">
@@ -51,30 +58,32 @@
                             </div>
                         </header>
                         <div class="tab-content max-h-0 m-2" :class=" isChecked ? 'max-h-screen' : ''">
-                                <x-user.input name="title" 
-                                              id="title" 
-                                              model="title"
-                                              type="text" 
-                                              placeholder="title"
-                                              required="true"
-                                ></x-user.input>
-                                <x-user.input name="details" 
-                                              id="details" 
-                                              model="details"
-                                              type="text" 
-                                              placeholder="details"
-                                              required="true"
-                                ></x-user.input>
-                                <x-user.input name="deadline" 
-                                              id="deadline" 
-                                              model="deadline"
-                                              type="date" 
-                                              placeholder="deadline"
-                                ></x-user.input>
-                                <x-user.button text="作成"
-                                               emit="save-create-confirm"
-                                               type="submit"
-                                ></x-user.button>
+                            <x-user.input name="title" 
+                                            id="title" 
+                                            model="title"
+                                            type="text" 
+                                            placeholder="title"
+                                            required="true"
+                            ></x-user.input>
+                            <x-user.input name="details" 
+                                            id="details" 
+                                            model="details"
+                                            type="text" 
+                                            placeholder="details"
+                                            required="true"
+                            ></x-user.input>
+                            <x-user.input name="deadline" 
+                                            id="deadline" 
+                                            model="deadline"
+                                            type="date" 
+                                            placeholder="deadline"
+                            ></x-user.input>
+                            <div class="flex items-center justify-center mt-4">
+                                <x-primary-button emit="save-create-confirm" 
+                                                  text="新規作成" 
+                                                  class="ml-3"
+                                ></x-primary-button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,10 +91,3 @@
         </section>
     </main>
 </div>
-<script>
-    function closeForm(){
-        setTimeout(() => {
-            this.isChecked = false;
-        }, 1300);
-    }
-</script>
