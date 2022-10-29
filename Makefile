@@ -18,7 +18,6 @@ prod:
 install:
 	@npm install
 	@composer install
-	@php artisan breeze:install
 	@php artisan migrate
 	@php artisan db:seed
 	@php artisan key:generate
