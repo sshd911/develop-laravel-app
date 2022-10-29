@@ -23,5 +23,11 @@ class UserProfileSeeder extends Seeder
                         'birthday' => now(),
                     ]);
         }
+
+        // \we can use him/ => ps: password1
+        UserProfile::factory()->create([
+            'user_id' => count($userIdList),
+            'birthday' => now(),
+        ]);
     }
 }

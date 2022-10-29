@@ -42,3 +42,9 @@ $ npm run dev
 ```
 $ php artisan serve
 ```
+
+###### Login
+```
+# email => test@test.com
+# password => password1
+```
