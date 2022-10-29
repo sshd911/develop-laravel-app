@@ -11,12 +11,13 @@ class DashboardContrller extends Controller
 {
     public function index()
     {
-        if (Auth::id()) {
-            $attributes = User::where('id', '!=', Auth::id())->get();
-        } else {
-            $attributes = User::select('*')->get();
-        }
-        $attributes = $attributes ? $attributes : null;
-        return view('dashboard', compact('attributes'));
+        // if (Auth::id()) {
+        //     $attributes = User::where('id', '!=', Auth::id())->get();
+        // } else {
+        //     $attributes = User::select('*')->get();
+        // }
+        // $attributes = $attributes ? $attributes : null;
+        // return view('dashboard', compact('attributes'));
+        return view('dashboard');
     }
 }

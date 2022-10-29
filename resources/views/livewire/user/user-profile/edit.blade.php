@@ -78,7 +78,7 @@
                                               type="text" 
                                               placeholder="残業太郎"
                                               required="name"
-                                              name="name"
+                                              name="表示名"
                                 ></x-user.input>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                               type="email" 
                                               placeholder="example@gmail.com"
                                               required="true"
-                                              name="email"
+                                              name="メールアドレス"
                                 ></x-user.input>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                                               type="date" 
                                               placeholder="birthday"
                                               required="birthday"
-                                              name="birthday"
+                                              name="生年月日"
                                 ></x-user.input>
                             </div>
                         </div>

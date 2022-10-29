@@ -28,21 +28,13 @@
         }).then(() => {});
     "
 >
-@push('script')
-    function closeForm(){
-        setTimeout(() => {
-            this.isChecked = false;
-        }, 1300);
-    }
-@endpush
-    <x-user.drag-bar-style></x-user.drag-bar-style>
     <main class="md:w-3/5 pt-2 mt-2 mx-auto" for="bt">
         <section class="shadow row">
             <div class="tabs bg-white">
                 <div class="border-b overflow-hidden">
                     <div class="border-l-2 border-transparent relative">
                         <header class="flex flex-wrap pt-4 pl-8 pr-8">
-                            <span class="flex-1 text-grey-darkest font-thin text-xl">新規作成</span>
+                            <span class="flex-1 text-grey-darkest font-bold text-xl">新規作成</span>
                             <div class="flex-none sm:flex sm:items-center sm:ml-6">
                                 <x-dropdown align="right" width="48" original="-top-4 right-6">
                                     <x-slot name="trigger">
@@ -58,21 +50,21 @@
                             </div>
                         </header>
                         <div class="tab-content max-h-0 m-2" :class=" isChecked ? 'max-h-screen' : ''">
-                            <x-user.input name="title" 
+                            <x-user.input name="タイトル" 
                                             id="title" 
                                             model="title"
                                             type="text" 
-                                            placeholder="title"
+                                            placeholder="わかりません。お願いします＞＜"
                                             required="true"
                             ></x-user.input>
-                            <x-user.input name="details" 
+                            <x-user.input name="詳細" 
                                             id="details" 
                                             model="details"
                                             type="text" 
-                                            placeholder="details"
+                                            placeholder="下記写真の...、ソースは...◇△○"
                                             required="true"
                             ></x-user.input>
-                            <x-user.input name="deadline" 
+                            <x-user.input name="期限" 
                                             id="deadline" 
                                             model="deadline"
                                             type="date" 

@@ -17,7 +17,7 @@ class UserProfileFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'test01'
         ];
     }
 }

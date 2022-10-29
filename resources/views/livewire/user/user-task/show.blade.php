@@ -32,7 +32,6 @@
         }, 1300);
     }
 @endpush
-    <x-user.drag-bar-style></x-user.drag-bar-style>
     @if ($attributes)
         @foreach ($attributes as $attribute)
             <main x-data="{ isChecked: false, isEdit: false }" class="md:w-3/5 pt-2 mt-2 mx-auto" for="bt">
