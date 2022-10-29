@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,21 +16,12 @@ class UserProfileSeeder extends Seeder
      */
     public function run()
     {
-        UserProfile::factory()->create([
-            'user_id' => '1',
-            'birthday' => now()->format('Y-m-d'),
-        ]);
-        UserProfile::factory()->create([
-            'user_id' => '2',
-            'birthday' => now()->format('Y-m-d'),
-        ]);
-        UserProfile::factory()->create([
-            'user_id' => '3',
-            'birthday' => now()->format('Y-m-d'),
-        ]);
-        UserProfile::factory()->create([
-            'user_id' => '4',
-            'birthday' => now()->format('Y-m-d'),
-        ]);
+        $userIdList = User::select('id')->pluck('id')->toArray();
+        for ($i=1; $i < count($userIdList); $i++) {
+            UserProfile::factory()->create([
+                        'user_id' => $i,
+                        'birthday' => now(),
+                    ]);
+        }
     }
 }
