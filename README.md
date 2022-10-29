@@ -15,8 +15,8 @@ DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=8889
 DB_DATABASE=example
-DB_USERNAME=hoge
-DB_PASSWORD=hoge
+DB_USERNAME=root
+DB_PASSWORD=root
 ```
 
 You can run below commands, after write .env(↑DB Connection↑)
