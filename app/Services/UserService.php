@@ -17,4 +17,9 @@ class UserService
     {
       $this->userProfile->create($attributes);
     }
+
+    public function update(int $userId, array $attributes)
+    {
+      User::where('id', '=', $userId)->update($attributes);
+    }
 }

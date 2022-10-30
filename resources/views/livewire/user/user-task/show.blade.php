@@ -2,7 +2,7 @@
         attributes: @entangle('attributes').defer,
     }"
     
-    @save-create-confirm.window=" 
+    @save-edit-confirm.window=" 
         Swal.fire({
             icon: 'question',
             title: '下記の内容で更新しますか？',
@@ -16,7 +16,8 @@
             }
         });
     "
-    @save-create-successful.window=" 
+    @save-esit-successful.window=" 
+        this.closeForm,
         Swal.fire({
             icon: 'success',
             title: '更新完了！',
@@ -25,13 +26,21 @@
         }).then((result) => {});
     "
 >
-@push('script')
-    function closeForm(){
-        setTimeout(() => {
-            this.isChecked = false;
-        }, 1300);
+<style>
+    input:checked+.tab-label .test {
+    background-color: #000;
     }
-@endpush
+    input:checked+.tab-label .test svg {
+    transform: rotate(3000deg);
+    stroke: #fff;
+    }
+    input:checked+.tab-label::after {
+    transform: rotate(3000deg);
+    }
+    input:checked~.tab-content {
+    max-height: 100vh;
+    }
+</style>
     @if ($attributes)
         @foreach ($attributes as $attribute)
             <main x-data="{ isChecked: false, isEdit: false }" class="md:w-3/5 pt-2 mt-2 mx-auto" for="bt">
@@ -79,7 +88,7 @@
                                             <div class="flex-1 font-bold">詳細</div>
                                             <div class="flex-1">{{ $attribute->deadline }}</div>
                                         </div>
-                                        <div class='flex flex-wrap mb-6'>
+                                        <div class='flex flex-wrap'>
                                             <div class="flex-1 font-bold">備考</div>
                                             <div class="flex-1">{{ $attribute->remarks }}</div>
                                         </div>
@@ -96,7 +105,7 @@
                             <div class="border-l-2 border-transparent relative">
                                 <input @click="isChecked = !isChecked"
                                        class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="bt">
-                                    <header class="flex flex-wrap pt-4 pl-10 pr-8">
+                                    <header :class="isEdit ? 'hidden' : ''" class="flex flex-wrap pt-4 pl-10 pr-8">
                                         <div class="flex-1 font-bold">タスク名</div>
                                         <div class="flex-1 pl-20">{{ $attribute->title }}</div>
                                         <div class="flex-none sm:flex sm:items-center sm:ml-6">
@@ -177,7 +186,11 @@
                                             ></x-user.input>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-center mt-4">
+                                    <div class="flex items-center justify-center m-4">
+                                        <x-primary-button text="キャンセル" 
+                                                          class="ml-3"
+                                                          click="isEdit"
+                                        ></x-primary-button>
                                         <x-primary-button emit="save-edit-confirm" 
                                                           text="更新" 
                                                           class="ml-3"

@@ -31,6 +31,6 @@ class UserProfileService
   
     public function update(int $userId, array $data)
     {
-        return UserProfile::where('id', $userId)->withTrashed()->update($data);
+        return UserProfile::where('user_id', $userId)->update($data);
     }
 }

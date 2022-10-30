@@ -4,6 +4,41 @@
          birthday: @entangle('birthday').defer,
          isEdit: false,
     }"
+    @save-edit-confirm.window=" 
+    Swal.fire({
+        icon: 'question',
+        title: '下記の内容で更新しますか？',
+        html: `<div class='flex flex-wrap font-bold'>
+            <div class='flex-1'>表示名</div>
+            <div class='flex-1'>{{ $name }}</div>
+        </div>
+        <div class='flex flex-wrap font-bold'>
+            <div class='flex-1'>メールアドレス</div>
+            <div class='flex-1'>{{ $email }}</div>
+        </div>
+        <div class='flex flex-wrap font-bold'>
+            <div class='flex-1'>生年月日</div>
+            <div class='flex-1'>{{( new DateTime($birthday))->format('Y年m月d日') }}</div>
+        </div>`,
+        showCancelButton: true,
+        confirmButtonText: '作成',
+        cancelButtonText: '修正',
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $wire.emit('save-edit');
+        }
+    });
+"
+@save-edit-successful.window=" 
+    this.closeForm,
+    Swal.fire({
+        icon: 'success',
+        title: '作成完了！',
+        timer: 1000,
+        showConfirmButton: false,
+    }).then(() => {});
+"
 >
     <div class="py-2" x-show="!isEdit">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -37,7 +72,7 @@
                     </div>
                     <div class='flex flex-wrap mb-6'>
                         <div class="flex-1 font-bold">生年月日</div>
-                        <div class="flex-1">{{ $birthday }}</div>
+                        <div class="flex-1">{{ (new DateTime($birthday))->format('Y年m月d日') }}</div>
                     </div>
                 </div>
             </div>
@@ -89,6 +124,8 @@
                                             placeholder="example@gmail.com"
                                             required="true"
                                             name="メールアドレス"
+                                            value="{{ $email }}"
+                                            disabled="true"
                             ></x-user.input>
                         </div>
                     </div>
@@ -98,9 +135,10 @@
                             <x-user.input id="birthday" 
                                             model="birthday"
                                             type="date" 
-                                            placeholder="birthday"
+                                            placeholder=""
                                             required="birthday"
                                             name="生年月日"
+                                            value="{{( new DateTime($birthday))->format('yyyy/MM/dd') }}"
                             ></x-user.input>
                         </div>
                     </div>

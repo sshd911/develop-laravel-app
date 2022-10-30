@@ -8,6 +8,18 @@
         Swal.fire({
             icon: 'question',
             title: '下記の内容で作成しますか？',
+            html: `<div class='flex flex-wrap font-bold'>
+                <div class='flex-1'>タイトル</div>
+                <div class='flex-1'>{{ $title }}</div>
+            </div>
+            <div class='flex flex-wrap font-bold'>
+                <div class='flex-1'>詳細</div>
+                <div class='flex-1'>{{ $details }}</div>
+            </div>
+            <div class='flex flex-wrap font-bold'>
+                <div class='flex-1'>期限</div>
+                <div class='flex-1'>{{ $deadline }}</div>
+            </div>`,
             showCancelButton: true,
             confirmButtonText: '作成',
             cancelButtonText: '修正',
