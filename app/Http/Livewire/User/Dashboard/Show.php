@@ -23,7 +23,7 @@ class Show extends Component
         if (auth()->id()) {
             $attributes = UserTask::where('user_id', '!=', auth()->id());
         } else {
-            $attributes = UserTask::all();
+            $attributes = UserTask::whereNotNull('created_at'); // {{ -- TODO -- }}
         }
         return $attributes;
     }
